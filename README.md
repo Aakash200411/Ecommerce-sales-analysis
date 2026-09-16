@@ -19,12 +19,13 @@ This analysis answers questions such as:
 - Which sub-categories are most profitable?
 - Which customer segment generates the highest profit?
 - What is the relationship between sales and profit?
+- Do high-revenue categories actually convert that revenue into profit?
 
 ---
 
 ## Dataset
 
-**Dataset:** Sample Superstore
+**Dataset:** Sample Superstore (9,994 transaction records, Jan–Sep 2017)
 
 The dataset includes information such as:
 
@@ -44,10 +45,9 @@ The dataset includes information such as:
 
 ### Data Preparation
 
-- Imported dataset using Pandas
-- Data exploration
-- Checked missing values
-- Converted date columns
+- Imported dataset using Pandas (`encoding='latin-1'`, required for this file's special characters)
+- Data exploration (`.describe()`, `.info()`) to check summary stats and data types
+- Converted `Order Date` and `Ship Date` from string to datetime
 - Created new date-based features
     - Order Month
     - Order Year
@@ -110,9 +110,15 @@ across customer segments.
 
 ---
 
-### 📉 Sales-to-Profit Ratio Analysis
+### 📉 Sales-to-Profit Ratio Analysis (by Segment)
 
-Calculated Sales-to-Profit ratio to evaluate business efficiency across customer segments.
+Calculated Sales-to-Profit ratio to evaluate business efficiency across customer segments — a lower ratio means fewer sales dollars were needed to generate each dollar of profit.
+
+---
+
+### 🧮 Profit Margin by Category
+
+Calculated Profit Margin % (`Profit / Sales`) for each product category, to check whether revenue ranking and profitability ranking actually agree.
 
 ---
 
@@ -121,8 +127,8 @@ Calculated Sales-to-Profit ratio to evaluate business efficiency across customer
 - Sales fluctuate throughout the year with noticeable seasonal peaks.
 - Technology and Office Supplies contribute significantly to overall revenue.
 - Some product sub-categories generate high sales but relatively low profits.
-- Customer segments differ in both revenue generation and profitability.
-- Sales alone are not always an indicator of profitability.
+- Customer segments differ in both revenue generation and profitability — **Home Office is the most profit-efficient segment** (lowest sales-to-profit ratio) despite having the smallest sales volume of the three.
+- **Sales alone are not always an indicator of profitability**: Furniture generates revenue nearly on par with Technology ($742K vs. $836K) but converts only a **2.5% profit margin**, compared to Technology's **17.4%** — a category that looks strong by revenue is actually the weakest by profitability, likely due to heavier discounting.
 
 ---
 
@@ -132,5 +138,9 @@ Calculated Sales-to-Profit ratio to evaluate business efficiency across customer
 - Pandas
 - Plotly
 - Jupyter Notebook
-- GitHub: https://github.com/yourusername
-- LinkedIn: https://linkedin.com/in/yourprofile
+
+## Links
+
+- GitHub: https://github.com/Aakash200411
+- LinkedIn: https://www.linkedin.com/in/aakash-lodha-9a2ab0259/
+- Portfolio: https://aakash200411.github.io/Portfolio/
